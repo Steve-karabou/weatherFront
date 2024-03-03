@@ -1,0 +1,156 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+.menu-title{
+ display:flex;
+ flex-direction: row;
+ padding-top: 20px;
+ padding-bottom: 20px;
+ padding-right: 20px;
+ /* padding: 20px; */
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+}
+.space{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 60px;
+}
+
+.description-title{
+    display: flex;
+    flex-direction: column;
+}
+
+.description-title .title{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.description-title .description-today{
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
+}
+.description-today .weather{
+ font-size: 30px;
+ color: #3879e0;
+}
+
+.description-title .space-title-description-today{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 30px;
+}
+
+.description-today .today{
+ display: flex;
+ flex-direction: column;
+ font-weight: bold;
+}
+.space-weather-today{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 15px;   
+}
+
+.today .today-title{
+font-size: 25px;
+}
+
+.description-title .space-tem-description-today{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 13px;
+}
+
+.description-title .tem{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: self-start;
+}
+
+.tem .tem-number{
+ font-size: 80px;
+ font-weight: bold;
+}
+
+.tem .tem-degre{
+    font-size: 30px;
+    font-weight: bold;
+    padding-top: 10px; 
+}
+.description-title .localisation{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.description-title .space-localisation-currently{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 15px;
+}
+
+.description-title .currently{
+    font-weight: bold;
+}
+
+.space-menu-title-page{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 10px; 
+}
+
+.container .page{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-weight:bolder;
+    font-size: 18px;
+}
+
+.page .page-next-7-days{
+    color: #2b6bd2;
+}
+.page .page-today{
+    display: flex;
+    flex-direction: column;
+}
+/* .page .online{
+
+} */
+.page .page-tomorrow{
+    display: flex;
+    flex-direction: column;
+}
+
+.space-page-wrapper-weather{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 10px; 
+}
+
+.container .wrapper-weather{
+    display: flex;
+    flex-direction: row;
+    background-color: red;
+    height: 90px;
+}
+.wrapper-weather .item{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    flex-basis: 70px;
+     
+}
+
+
