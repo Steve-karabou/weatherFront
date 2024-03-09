@@ -1,6 +1,8 @@
 .container{
     display: flex;
     flex-direction: column;
+    width: 375px;
+    height: 812;
 }
 .menu-title{
  display:flex;
@@ -41,6 +43,10 @@
 .description-today .weather{
  font-size: 30px;
  color: #3879e0;
+}
+.description-today .weather-fill{
+    font-size: 30px;
+    color: white; 
 }
 
 .description-title .space-title-description-today{
@@ -124,13 +130,26 @@ font-size: 25px;
 .page .page-today{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
-/* .page .online{
-
-} */
+.page-today .today{
+    display: flex;
+ }
+ .page .online{
+ display: flex;
+  border: 1px solid white;
+  width: 10px;
+  height: 10px;
+  background-color: blue;
+  border-radius: 5px;
+} 
 .page .page-tomorrow{
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+.page-tomorrow .tomorrow{
+    display: flex;
 }
 
 .space-page-wrapper-weather{
@@ -142,15 +161,160 @@ font-size: 25px;
 .container .wrapper-weather{
     display: flex;
     flex-direction: row;
-    background-color: red;
-    height: 90px;
+    height: 170px;
+    overflow-x: auto;
+    align-items: flex-end;
+    padding: 0px;
+}
+.wrapper-weather::-webkit-scrollbar{
+    width: 0;
 }
 .wrapper-weather .item{
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
-    flex-basis: 70px;
-     
+    border: 1px solid rgb(60, 49, 49);
+    min-width: 70px;
+    margin-left: 3px;
+    margin-right: 3px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder; 
+    border-radius: 35px; 
+    height: 135px;   
+    background-color: #494d6c;
+    color: white; 
+}
+.wrapper-weather .item4{
+
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(60, 49, 49);
+    min-width: 70px;
+    margin-left: 3px;
+    margin-right: 3px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder; 
+    border-radius: 35px; 
+    height: 135px;   
+    background-color: white;
+    color: black; 
+    align-self: flex-start;
+}
+.item .item-icon {
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+.item4 .item-icon {
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+.item .item-tem {
+    display: flex;
+}
+.item4 .item-tem {
+    display: flex;
+}
+.container .space-wrapper-weather-chance-of-rain{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 10px;   
+}
+.container .chance-of-rain{
+   font-weight: bolder; 
+}
+.container .diagram-weather{
+    display: flex;
+    flex-direction: row;
+    font-weight: bolder;
+    height: 140px;
+    /* background-color: red; */
+}
+.diagram-weather .different-weather{
+    display: flex;
+    flex-direction: column;
+}
+.diagram-weather .space-chance-of-rain-different-diagram{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 30px;  
+
+}
+.diagram-weather .different-diagram{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
 }
 
+.different-diagram .digram-time{
+    display: flex;
+    flex-direction: column;
+    /* background-color: #2b6bd2; */
+    width: 45px;
+    align-items: center;
+}
 
+.different-diagram .space-digram-time{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 25px;  
+}
+
+.different-diagram .time{
+  font-size: 12px;
+  font-weight: bolder;
+}
+.digram-time .diagram-10-am{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(60, 49, 49);   
+    background-color: #494d6c; 
+    height: 75px;
+    width: 17px;
+    border-radius: 35px;
+}
+.digram-time .diagram-12-am{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(60, 49, 49);   
+    background-color: #494d6c; 
+    height: 100px;
+    width: 17px;
+    border-radius: 35px;
+}
+.digram-time .diagram-2-pm{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(60, 49, 49);   
+    background-color: #494d6c; 
+    height: 56px;
+    width: 17px;
+    border-radius: 35px;
+}
+.digram-time .diagram-4-pm{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid yellow;   
+    background-color: yellow; 
+    height: 56px;
+    width: 17px;
+    border-radius: 35px;
+}
+.digram-time .diagram-6-pm{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(60, 49, 49);   
+    background-color: #494d6c; 
+    height:75px;
+    width: 17px;
+    border-radius: 35px;
+}
+.digram-time .diagram-8-pm{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(60, 49, 49);   
+    background-color: #494d6c; 
+    height:56px;
+    width: 17px;
+    border-radius: 35px;
+}

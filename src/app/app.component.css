@@ -2,7 +2,7 @@
     font-family: "Poiret One", sans-serif;
     font-weight: 400;
     font-style: normal;
-    height: 100vh;
+    min-height: 100vh;
   }
 
   .swatch_6{

@@ -8,20 +8,25 @@
          <div class="title">Weather Forecast</div>
          <div class="space-title-description-today"></div>
          <div class="description-today">
-            <div class="weather"><i class="bi bi-cloud-rain"></i></div>
+            <div >
+              <i class="bi bi-cloud-rain-fill weather"  *ngIf="dataWeather?.precipitationProbability === 1"></i>
+              <i class="bi bi-cloud-fill weather" *ngIf="dataWeather.cloudCover >= 50 && dataWeather.cloudCover <= 100"></i>
+              <i class="bi bi-cloud-sun-fill weather" *ngIf="dataWeather.cloudCover >= 40 && dataWeather.cloudCover < 50"></i>
+              <i class="bi bi-sun-fill weather-fill" *ngIf="dataWeather.cloudCover <= 30"></i>
+            </div>
             <div class="space-weather-today"></div>
             <div class="today">
               <div class="today-title">Today</div>
-              <div class="today-date">sat, 3 Aug</div>
+              <div class="today-date">{{todayDate[0]}}, {{todayDate[2]}} {{todayDate[1]}}</div>
             </div>
          </div>
          <div class="space-tem-description-today"></div>
          <div class="tem">
-          <div class="tem-number">28</div>
+          <div class="tem-number"><div *ngIf="!dataWeather?.temperature">30</div>{{ getTemperature(dataWeather?.temperature) }}</div>
           <div class="tem-degre"><i class="wi wi-celsius tem-degre"></i></div>
          </div>
          <div class="localisation">
-            <div>Barcelone, Spain <i class="bi bi-app-indicator"></i></div>
+            <div>Barcelona, Spain <i class="bi bi-app-indicator"></i></div>
          </div>
          <div class="space-localisation-currently"></div>
          <div class="currently">
@@ -32,42 +37,140 @@
      <div class="space-menu-title-page"></div>
     <div class="page">
       <div class="page-today">
-        <div>Today</div>
-        <div class="online"></div>
+        <div class="today" (click)="today()">Today</div>
+        <div class="online" *ngIf="currentButton"></div>
       </div>
       <div class="page-tomorrow">
-        <div>Tomorrow</div>
-        <div class="online"></div>
+        <div class="tomorrow" (click)="tomorrow()">Tomorrow</div>
+        <div class="online" *ngIf="currentButton == false"></div>
       </div>
-      <div class="page-next-7-days">Next 7 Days <i class="bi bi-chevron-right"></i> </div>
+      <div class="page-next-7-days" (click)="nextDaysPage()">Next 7 Days <i class="bi bi-chevron-right"></i> </div>
     </div>
     <div class="space-page-wrapper-weather"></div>
-    <div class="wrapper-weather">
+    <div class="wrapper-weather" >
       <div class="item">
-        <div> box-1</div>
-        <div> box-1</div>
+        <div> 10AM</div>
+        <div class="item-icon">
+          <i class="bi bi-cloud-rain-fill weather"  *ngIf="todayTomorrow[0]?.values?.precipitationProbability === 1 "></i>
+          <i class="bi bi-cloud-fill weather-fill" *ngIf="todayTomorrow[0]?.values?.cloudCover >= 50 && todayTomorrow[0]?.values?.cloudCover <=100"></i>
+          <i class="bi bi-cloud-sun-fill weather-fill" *ngIf="todayTomorrow[0]?.values?.cloudCover >= 40 && todayTomorrow[0]?.values?.cloudCover < 50"></i>
+          <i class="bi bi-sun-fill weather-fill" *ngIf="todayTomorrow[0]?.values?.cloudCover <= 30"></i>
+          </div>
+        <div class="item-tem">
+          <div class="item-tem-number">{{todayTomorrow[0]?.values?.temperature}}</div>
+          <div class="item-tem-degre"><i class="wi wi-celsius tem-degre"></i></div>
+         </div>
       </div>
       <div class="item">
-        <div>box-2</div>
-        <div>box-2</div>
+        <div> 12AM</div>
+        <div class="item-icon"> 
+          <i class="bi bi-cloud-rain-fill weather"  *ngIf="todayTomorrow[1]?.values?.precipitationProbability === 1 "></i>
+          <i class="bi bi-cloud-fill weather-fill" *ngIf="todayTomorrow[1]?.values?.cloudCover >= 50 && todayTomorrow[1]?.values?.cloudCover <=100"></i>
+          <i class="bi bi-cloud-sun-fill weather-fill" *ngIf="todayTomorrow[1]?.values?.cloudCover >= 40 && todayTomorrow[1]?.values?.cloudCover < 50"></i>
+          <i class="bi bi-sun-fill weather-fill" *ngIf="todayTomorrow[1]?.values?.cloudCover <= 30"></i>
+        </div>
+        <div class="item-tem">
+          <div class="item-tem-number">{{todayTomorrow[1]?.values?.temperature}}</div>
+          <div class="item-tem-degre"><i class="wi wi-celsius tem-degre"></i></div>
+         </div>
       </div>
       <div class="item">
-        <div>box-3</div>
-        <div>box-3</div>
+        <div> 2PM</div>
+        <div class="item-icon"> 
+          <i class="bi bi-cloud-rain-fill weather"  *ngIf="todayTomorrow[2]?.values?.precipitationProbability === 1 "></i>
+          <i class="bi bi-cloud-fill weather-fill" *ngIf="todayTomorrow[2].values.cloudCover >= 50 && todayTomorrow[2].values.cloudCover <=100"></i>
+          <i class="bi bi-cloud-sun-fill weather-fill" *ngIf="todayTomorrow[2].values.cloudCover >= 40 && todayTomorrow[2].values.cloudCover < 50"></i>
+          <i class="bi bi-sun-fill weather-fill" *ngIf="todayTomorrow[2].values.cloudCover <= 30"></i>
+         </div>
+        <div class="item-tem">
+          <div class="item-tem-number">{{todayTomorrow[2].values.temperature}}</div>
+          <div class="item-tem-degre"><i class="wi wi-celsius tem-degre"></i></div>
+         </div>
+      </div>
+      <div class="item4">
+        <div> 4PM</div>
+        <div class="item-icon">
+          <i class="bi bi-cloud-rain-fill weather"  *ngIf="todayTomorrow[3]?.values?.precipitationProbability === 1 "></i>
+          <i class="bi bi-cloud-fill weather-fill" *ngIf="todayTomorrow[3].values.cloudCover >= 50 && todayTomorrow[3].values.cloudCover <=100"></i>
+          <i class="bi bi-cloud-sun-fill weather-fill" *ngIf="todayTomorrow[3].values.cloudCover >= 40 && todayTomorrow[3].values.cloudCover < 50"></i>
+          <i class="bi bi-sun-fill weather-fill" *ngIf="todayTomorrow[3].values.cloudCover <= 30"></i>
+        </div>
+        <div class="item-tem">
+          <div class="item-tem-number">{{todayTomorrow[3].values.temperature}}</div>
+          <div class="item-tem-degre"><i class="wi wi-celsius tem-degre"></i></div>
+         </div>
       </div>
       <div class="item">
-        <div>box-4</div>
-        <div>box-4</div>
+        <div> 6PM</div>
+        <div class="item-icon"> 
+          <i class="bi bi-cloud-rain-fill weather"  *ngIf="todayTomorrow[4]?.values?.precipitationProbability === 1 "></i>
+          <i class="bi bi-cloud-fill weather-fill" *ngIf="todayTomorrow[4].values.cloudCover >= 50 && todayTomorrow[4].values.cloudCover <=100"></i>
+          <i class="bi bi-cloud-sun-fill weather-fill" *ngIf="todayTomorrow[4].values.cloudCover >= 40 && todayTomorrow[4].values.cloudCover < 50"></i>
+          <i class="bi bi-sun-fill weather-fill" *ngIf="todayTomorrow[4].values.cloudCover <= 30"></i>
+        </div>
+        <div class="item-tem">
+          <div class="item-tem-number">{{todayTomorrow[4].values.temperature}}</div>
+          <div class="item-tem-degre"><i class="wi wi-celsius tem-degre"></i></div>
+         </div>
       </div>
       <div class="item">
-        <div>box-5</div>
-        <div>box-5</div>
+        <div> 8PM</div>
+        <div class="item-icon">
+          <i class="bi bi-cloud-rain-fill weather"  *ngIf="todayTomorrow[5]?.values?.precipitationProbability === 1 "></i>
+          <i class="bi bi-cloud-fill weather-fill" *ngIf="todayTomorrow[5].values.cloudCover >= 50 && todayTomorrow[5].values.cloudCover <=100"></i>
+          <i class="bi bi-cloud-sun-fill weather-fill" *ngIf="todayTomorrow[5].values.cloudCover >= 40 && todayTomorrow[5].values.cloudCover < 50"></i>
+          <i class="bi bi-sun-fill weather-fill" *ngIf="todayTomorrow[5].values.cloudCover <= 30"></i>
+        </div>
+        <div class="item-tem">
+          <div class="item-tem-number">{{todayTomorrow[5].values.temperature}}</div>
+          <div class="item-tem-degre"><i class="wi wi-celsius tem-degre"></i></div>
+         </div>
       </div>
-      <div class="item">
-        <div>box-6</div>
-        <div>box-6</div>
+    </div>
+    <div class="space-wrapper-weather-chance-of-rain"></div>
+    <div class="chance-of-rain">Chance of rain</div>
+    <div class="space-wrapper-weather-chance-of-rain"></div>
+    <div class="diagram-weather">
+      <div class="different-weather">
+        <div>sunny</div>
+        <div class="space-wrapper-weather-chance-of-rain"></div>
+        <div>rainy</div>
+        <div class="space-wrapper-weather-chance-of-rain"></div>
+        <div>heavy</div>
+        <div>rain</div>
       </div>
-
+      <div class="space-chance-of-rain-different-diagram"></div>
+      <div class="different-diagram">
+       <div class="digram-time">
+        <div class="diagram-10-am"></div>
+        <div class="time">10AM</div>
+       </div>
+       <div class="space-digram-time"></div>
+       <div class="digram-time">
+        <div class="diagram-12-am"></div>
+        <div class="time">12AM</div>
+       </div>
+       <div class="space-digram-time"></div>
+       <div class="digram-time">
+        <div class="diagram-2-pm"></div>
+        <div class="time">2PM</div>
+       </div>
+       <div class="space-digram-time"></div>
+       <div class="digram-time">
+        <div class="diagram-4-pm"></div>
+        <div class="time">4PM</div>
+       </div>
+       <div class="space-digram-time"></div>
+       <div class="digram-time">
+        <div class="diagram-6-pm"></div>
+        <div class="time">6PM</div>
+       </div>
+       <div class="space-digram-time"></div>
+       <div class="digram-time">
+        <div class="diagram-8-pm"></div>
+        <div class="time">8PM</div>
+       </div>
+      </div>
     </div>
 </div>
 
