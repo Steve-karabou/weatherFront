@@ -1,3 +1,12 @@
+<ngx-spinner
+  bdColor="#3c405c"
+  size="medium"
+  color="#fff"
+  type="ball-spin"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
 <div class="container">
     <div class="menu-title">
         <div class="menu">
@@ -9,6 +18,7 @@
          <div class="space-title-description-today"></div>
          <div class="description-today">
             <div >
+              <!-- <i class="bi bi-cloud-rain-fill weather"></i> -->
               <i class="bi bi-cloud-rain-fill weather"  *ngIf="dataWeather?.precipitationProbability === 1"></i>
               <i class="bi bi-cloud-fill weather" *ngIf="dataWeather.cloudCover >= 50 && dataWeather.cloudCover <= 100"></i>
               <i class="bi bi-cloud-sun-fill weather" *ngIf="dataWeather.cloudCover >= 40 && dataWeather.cloudCover < 50"></i>
@@ -22,7 +32,8 @@
          </div>
          <div class="space-tem-description-today"></div>
          <div class="tem">
-          <div class="tem-number"><div *ngIf="!dataWeather?.temperature">30</div>{{ getTemperature(dataWeather?.temperature) }}</div>
+          <!-- <div class="tem-number"> 30 </div> -->
+          <div class="tem-number"><div *ngIf="!dataWeather?.temperature">30</div> {{ getTemperature(dataWeather?.temperature)}} </div>
           <div class="tem-degre"><i class="wi wi-celsius tem-degre"></i></div>
          </div>
          <div class="localisation">
@@ -142,31 +153,37 @@
       <div class="space-chance-of-rain-different-diagram"></div>
       <div class="different-diagram">
        <div class="digram-time">
+        <div class="diagram-10-line"></div>
         <div class="diagram-10-am"></div>
         <div class="time">10AM</div>
        </div>
        <div class="space-digram-time"></div>
        <div class="digram-time">
+        <div class="diagram-12-line"></div>
         <div class="diagram-12-am"></div>
         <div class="time">12AM</div>
        </div>
        <div class="space-digram-time"></div>
        <div class="digram-time">
+        <div class="diagram-2-line"></div>
         <div class="diagram-2-pm"></div>
         <div class="time">2PM</div>
        </div>
        <div class="space-digram-time"></div>
        <div class="digram-time">
+        <div class="diagram-4-line"></div>
         <div class="diagram-4-pm"></div>
         <div class="time">4PM</div>
        </div>
        <div class="space-digram-time"></div>
        <div class="digram-time">
+        <div class="diagram-6-line"></div>
         <div class="diagram-6-pm"></div>
         <div class="time">6PM</div>
        </div>
        <div class="space-digram-time"></div>
        <div class="digram-time">
+        <div class="diagram-8-line"></div>
         <div class="diagram-8-pm"></div>
         <div class="time">8PM</div>
        </div>

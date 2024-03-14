@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../service/weather.service';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-today',
@@ -14,11 +15,13 @@ export class TodayComponent implements OnInit {
   longitude: any;
   countryCity: any;
   todayTomorrow: any = [];
-  currentButton: boolean = true; 
+  currentButton: Boolean = true; 
   startTime!: number;
   endTime!: number;
 
-  constructor(private weatherServ: WeatherService, private router: Router){}
+  constructor(private weatherServ: WeatherService, 
+              private router: Router,
+              private spinner: NgxSpinnerService){}
 
   ngOnInit(): void{
 
@@ -26,6 +29,7 @@ export class TodayComponent implements OnInit {
       console.log("Location is not support")
     }
 
+    this.openSpinner();
     navigator.geolocation.getCurrentPosition((position) =>{
       // console.log(`lat:${position.coords.latitude}, lon: ${position.coords.longitude}`);
        this.latitude = position.coords.latitude;
@@ -39,6 +43,9 @@ export class TodayComponent implements OnInit {
   realtimeWeather(){
     this.weatherServ.getWeatherRealtime(this.latitude, this.longitude).subscribe({
       next:(data:any) =>{
+        if(data){
+          this.closeSpinner()
+        }
          this.dataWeather = data.data.values; 
          this.todayDate =  new Date(data.data.time).toDateString().split(' ');
       }
@@ -93,6 +100,19 @@ export class TodayComponent implements OnInit {
      })
   }
 
+  openSpinner(){
+    this.spinner.show();
+    // setTimeout(() => {
+    //   this.spinner.hide();
+    // }, 5000);
+  }
+
+  closeSpinner(){
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 5000);
+  }
+
   nextDaysPage(){
     this.router.navigateByUrl("/next7Day");
   }
@@ -102,11 +122,13 @@ export class TodayComponent implements OnInit {
   }
 
   tomorrow(){
+    console.log("Tomorrow:", this.currentButton)
    this.currentButton = false;
+   console.log("Tomorrow1:", this.currentButton)
   }
 
   getTemperature(temperature: number): number{
-   
+    console.log("temperature:", temperature)
    return Math.floor(temperature);
   }
 

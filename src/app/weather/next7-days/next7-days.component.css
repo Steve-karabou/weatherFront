@@ -154,11 +154,10 @@
 
 .container .day-item{
  display: flex;
- justify-content: space-between;
  align-items: center;
  margin-left: 12px;
  margin-right: 12px;
- margin-bottom: 15px;
+ /* margin-bottom: 15px; */
 }
 .day-item .day-description{
     display: flex;
@@ -167,31 +166,135 @@
 .day-description .day{
   display: flex;
   font-weight: bold;
+  font-size: 20px;
+  font-size: 15px;
 }
+
 .day-description .day-value{
     display: flex;
     font-size: 9px;
     font-weight: bold;
   }
+  .day-item .space-days-icon{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 40px;
+
+  }
 .day-item .icom{
  display: flex;
  font-size: 23px;
 }
+.icom-wed{
+    display: flex;
+    font-size: 23px;
+    color: yellow;
+}
+.icom-sat{
+    display: flex;
+    font-size: 23px;
+    color: #2a60b8;
+}
 .cloud{
   color: #2a60b8;
 } 
-.day-item .temperature{
+.diagram-dash .temperature{
  display: flex;
+ align-items: center;
  font-size: 20px;
  color: #b9abab;
 }
+.day-item .diagram-dash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 200px;
+}
+.day-item .temperature-celsius{
+    font-size: 32px;
+}
+    
+.day-item .diagram-dash-left {
+    display: flex;
+    border: 1px dashed rgb(176, 165, 165);
+    width: 19px;
+    height: 0px;
+}
+.diagram-dash-left-sun{
+    display: flex;
+    border: 1px dashed rgb(176, 165, 165);
+    width: 85px;
+    height: 0px;
+}
+.diagram-dash-left-wed{
+    display: flex;
+    border: 1px dashed rgb(176, 165, 165);
+    width: 50px;
+    height: 0px;
+}
+.diagram-dash-left-thu{
+    display: flex;
+    border: 1px dashed rgb(176, 165, 165);
+    width: 35px;
+    height: 0px; 
+}
+.day-item .space-temperature-apparent{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 25px;
+}
+.space-temperature-apparent-wed{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 18px;
+}
+
+.day-item .diagram-dash-right{
+    display: flex;
+    border: 1px dashed rgb(176, 165, 165);
+    flex-basis: 70px;
+    height: 0px;
+}
+.diagram-dash-right-fri{
+    display: flex;
+    border: 1px dashed rgb(176, 165, 165);
+    flex-basis: 120px;
+    height: 0px;  
+}
+.diagram-dash-right-thu{
+    display: flex;
+    border: 1px dashed rgb(176, 165, 165);
+    flex-basis: 25px;
+    height: 0px; 
+}
+.day-item .space-temperature-apparent-right{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 20px;
+}
+ .space-temperature-apparent-right-wed{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 18px;
+}
 .day-item .diagram{
  display: flex;
- width: 60px;
- height: 20px;
- border: 1px solid rgb(176, 165, 165);
- border-radius: 10px; 
+ /* width: 60px; */
+ height: 25px;
+ /* border: 1px solid rgb(207, 174, 174); */
+ border-radius: 10px;
+ background-color: rgb(176, 165, 165); 
+ flex-basis: 90px;
 }
+.diagram-sun{
+    display: flex;
+    /* width: 60px; */
+    height: 25px;
+    /* border: 1px solid rgb(207, 174, 174); */
+    border-radius: 10px;
+    /* background-color: rgb(176, 165, 165);  */
+    flex-basis: 90px;
+   }
 .diagram .diagram-white{
    display: flex;   
    background-color: rgb(176, 165, 165);
@@ -200,27 +303,140 @@
    border-end-start-radius: 10px;
    border-start-start-radius: 10px; 
 }
+.diagram-white-wed{
+    display: flex;   
+   background-color: rgb(176, 165, 165);
+   width: 18px; 
+   /* border-radius: 10px; */
+   border-end-start-radius: 10px;
+   border-start-start-radius: 10px; 
+}
+.diagram-white-thu{
+    display: flex;   
+    background-color: rgb(176, 165, 165);
+    width: 30px; 
+    /* border-radius: 10px; */
+    border-end-start-radius: 10px;
+    border-start-start-radius: 10px; 
+}
+.diagram-white-fri{
+    display: flex;   
+    background-color: rgb(176, 165, 165);
+    width: 18px; 
+    /* border-radius: 10px; */
+    border-end-start-radius: 10px;
+    border-start-start-radius: 10px;
+    /* margin-right: 25px;  */
+}
+.diagram-white-wed{
+    display: flex;   
+   background-color: rgb(176, 165, 165);
+   width: 18px; 
+   /* border-radius: 10px; */
+   border-end-start-radius: 10px;
+   border-start-start-radius: 10px; 
+}
+.diagram-white-sun{
+    display: flex;   
+   background-color: rgb(176, 165, 165);
+   width: 12px; 
+   /* border-radius: 10px; */
+   border-end-start-radius: 10px;
+   border-start-start-radius: 10px; 
+
+}
+.diagram-line-space{
+    display: flex;
+    /* flex-direction: column; */
+    flex-basis: 35px;
+
+}
+.diagram-red-fri{
+    display: flex;
+    background-color: rgb(208, 35, 35);
+    width: 15px;
+    border: 2px solid rgb(208, 35, 35);
+    /* border-radius: 10px;  */
+    /* border-start-end-radius: 10px; */
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.diagram-red-sun{
+    display: flex;
+    background-color: rgb(208, 35, 35);
+    width: 20px;
+    border: 2px solid rgb(208, 35, 35);
+    /* border-radius: 10px;  */
+    /* border-start-end-radius: 10px; */
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
 .diagram .diagram-red{
     display: flex;
-    background-color: red;
+    background-color: rgb(208, 35, 35);
     width: 20px;
+    border: 2px solid rgb(208, 35, 35);
     /* border-radius: 10px;  */
     /* border-start-end-radius: 10px; */
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
  }
+ .diagram-red-wed{
+    display: flex;
+    background-color: rgb(208, 35, 35);
+    width: 48px;
+    border: 2px solid rgb(208, 35, 35);
+    /* border-radius: 10px;  */
+    /* border-start-end-radius: 10px; */
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;  
+ }
+ .diagram-red-thu{
+    display: flex;
+    background-color: rgb(208, 35, 35);
+    width: 35px;
+    border: 2px solid rgb(208, 35, 35);
+    /* border-radius: 10px;  */
+    /* border-start-end-radius: 10px; */
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;  
+ }
  .diagram .diagram-line{
     display: flex;
-    border: 1px solid rgb(176, 165, 165);
-    height: 15px;
+    border: 0.5px dashed rgb(176, 165, 165);
+    height: 80px;
+ }
+ .diagram-line-fri{
+    display: flex;
+    border: 0.5px dashed rgb(176, 165, 165);
+    height: 140px;
  }
  .space-item{
     display: flex;
     flex-direction: column;
-    flex-basis: 15px; 
+    flex-basis: 20px;
+     /* align-items: end;
+     background-color: red; */
  }
-.day-item .temperature-apparent{
+ .space-item.diagram-line-item{
+    display: flex;
+    border: 1px dashed rgb(176, 165, 165);
+    height: 30px;
+    background-color: red;
+ }
+.diagram-dash .temperature-apparent{
  display: flex;
+ align-items: center;
  font-weight: bold;
  font-size: 20px;
+}
+.day-value .space-precipation{
+    display: flex;
+    flex-basis: 15px;
+    margin-left: 6px;
+}
+.day-value .precipation-icon{
+ display: flex;
+ color: #2a60b8;
+ font-size: 15px;
 }
