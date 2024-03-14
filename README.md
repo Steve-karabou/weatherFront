@@ -8,3 +8,6 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Test weather Application
 in your google chrome browser do click right chose inspect and do ctrl + shift+M, in high at left click on icon near of dimension and chose Iphone x
+
+## Activate position localization  
+In your navigation bar at right, active it localization position
